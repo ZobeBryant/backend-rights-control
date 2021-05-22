@@ -37,6 +37,7 @@
 
 <script>
 
+import {initDynamicRoutes} from '@/router.js'
 export default {
   data() {
     return {
@@ -74,6 +75,8 @@ export default {
         // 根据rights中的数据，动态渲染左侧菜单栏，数据在login.vue得到，在Home.vue使用，可以把数据用vuex进行维护
         this.$store.commit('setRightList', res.rights);
         this.$store.commit('setUsername', res.data.username);
+        sessionStorage.setItem('token', res.data.token)
+        initDynamicRoutes()
         this.$message.success('登录成功')
         this.$router.push('/home')
       })

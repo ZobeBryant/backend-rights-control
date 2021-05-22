@@ -6,8 +6,13 @@
 </template>
 
 <script>
+import { initDynamicRoutes } from '@/router.js' 
 export default {
-  name: 'app'
+  name: 'app',
+  created(){
+    initDynamicRoutes()
+  }
+
 }
 </script>
 
