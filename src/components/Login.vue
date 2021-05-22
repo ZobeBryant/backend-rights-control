@@ -71,6 +71,9 @@ export default {
         if (!valid) return
         const { data: res } = await this.$http.post('login', this.loginForm)
         if (res.meta.status !== 200) return this.$message.error('登录失败！')
+        // 根据rights中的数据，动态渲染左侧菜单栏，数据在login.vue得到，在Home.vue使用，可以把数据用vuex进行维护
+        this.$store.commit('setRightList', res.rights);
+        this.$store.commit('setUsername', res.data.username);
         this.$message.success('登录成功')
         this.$router.push('/home')
       })
