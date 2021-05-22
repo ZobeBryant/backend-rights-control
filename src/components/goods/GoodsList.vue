@@ -16,7 +16,7 @@
           </el-input>
         </el-col>
         <el-col :span="4">
-          <el-button type="primary">添加商品</el-button>
+          <el-button type="primary" v-permission="{action: 'add'}">添加商品</el-button>
         </el-col>
       </el-row>
 
@@ -34,12 +34,15 @@
             <el-button 
               type="primary" 
               icon="el-icon-edit" 
-              size="mini">
+              size="mini"
+              v-permission="{action: 'edit', effect: 'disabled'}"
+              >
             </el-button>
             <el-button
               type="danger"
               icon="el-icon-delete"
               size="mini"
+              v-permission="{action: 'delete', effect: 'disabled'}"
               @click="removeById(scope.row.goods_id)"
             ></el-button>
           </template>

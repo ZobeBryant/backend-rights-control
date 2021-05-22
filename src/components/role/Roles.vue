@@ -12,7 +12,8 @@
       <!-- 添加角色按钮区域 -->
       <el-row>
         <el-col>
-          <el-button type="primary">添加角色</el-button>
+          <el-button type="primary" v-permission="{action: 'add', effect: 'disabled'}">
+            添加角色</el-button>
         </el-col>
       </el-row>
 
@@ -27,7 +28,9 @@
             <el-button 
               size="mini" 
               type="primary" 
-              icon="el-icon-edit">
+              icon="el-icon-edit"
+              v-permission="{action: 'edit', effect: 'disabled'}"
+              >
               编辑
             </el-button>
             <el-button 
@@ -35,6 +38,7 @@
               type="danger" 
               icon="el-icon-delete"
               @click="removeById(scope.row.id)"
+              v-permission="{action: 'delete', effect: 'disabled'}"
               >
               删除
             </el-button>

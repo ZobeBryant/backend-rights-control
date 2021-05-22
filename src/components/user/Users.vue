@@ -20,6 +20,7 @@
           <el-button
             type="primary"
             @click="addDialogVisible = true"
+            v-permission="{action: 'add'}"
           >添加用户</el-button>
         </el-col>
       </el-row>

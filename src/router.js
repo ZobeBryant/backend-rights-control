@@ -79,7 +79,10 @@ export function initDynamicRoutes(){
   const rightList = store.state.rightList
   rightList.forEach(item => {
     item.children.forEach(item =>{
-      currentRoutes[2].children.push(ruleMapping[item.path])
+      const itemRule = ruleMapping[item.path]
+      // 路由规则中添加元数据，元数据存储的是用户权限
+      itemRule.meta = item.rights
+      currentRoutes[2].children.push(itemRule)
     })
   })
   router.addRoutes(currentRoutes)
