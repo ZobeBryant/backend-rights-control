@@ -41,9 +41,9 @@
             <el-button
               type="danger"
               icon="el-icon-delete"
-              size="mini"
-              v-permission="{action: 'delete', effect: 'disabled'}"
+              size="mini"           
               @click="removeById(scope.row.goods_id)"
+              v-permission="{action: 'delete', effect: 'disabled'}"
             ></el-button>
           </template>
         </el-table-column>
